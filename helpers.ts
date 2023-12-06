@@ -1,9 +1,13 @@
 import { readFile } from 'node:fs/promises';
 
-export function addUp(input: string[], getLineValue: (line: string) => number) {
-    return input.reduce((acc, line) => {
-        return acc + getLineValue(line);
+export function addUp(input: string[], getLineValue: (line: string, i?: number) => number) {
+    return input.reduce((acc, line, i) => {
+        return acc + getLineValue(line, i);
     }, 0);
+}
+
+export function range(start: number, end: number) {
+    return Array(end - start).fill(null).map((_,i) => start + i);
 }
 
 export async function run(func: (lines: string[]) => void, filename: string): Promise<void> {
