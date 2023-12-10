@@ -10,6 +10,10 @@ export function range(start: number, end: number) {
     return Array(end - start).fill(null).map((_,i) => start + i);
 }
 
+export function fill<T>(value: T, length: number) {
+    return Array(length).fill(null).map(() => value);
+}
+
 export function getLineGroups(input: string[], splitAt: (line: string) => boolean, keepLine = false) {
     return input.reduce<string[][]>((acc, line) => {
         if (splitAt(line)) {
