@@ -78,7 +78,6 @@ function aoc2023_7a(input: string[]) {
 function aoc2023_7b(input: string[]) {
     const hands = input.map(line => getHand(line, true));
     return hands.sort((a, b) => compareHands(a, b, true))
-        // .filter(h => h.type === '3K')
         .reduce((acc, { bid }, i) => acc + bid * (i + 1), 0);
 }
 
